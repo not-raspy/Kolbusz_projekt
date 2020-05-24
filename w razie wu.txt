@@ -1,8 +1,0 @@
-w razie czego
-function getGodzina($tytul){
-    $godziny = "SELECT DISTINCT  FROM tbczasmiejsce INNER JOIN tb_info_o_filmie ON tb_info_o_filmie.ID_tytulu = tbczasmiejsce.ID_filmu WHERE tbczasmiejsce.DzienTyg = 'Wtorek' AND tb_info_o_filmie.TytulFilmu = 'Zew Krwi'";
-    $log = $this->pdo->prepare($godziny);
-    $log->execute();
-    $row2 = $log->fetchAll();
-    return $row2;
-}
