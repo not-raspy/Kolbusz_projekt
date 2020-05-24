@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 21 Maj 2020, 02:26
+-- Czas generowania: 24 Maj 2020, 16:28
 -- Wersja serwera: 10.4.11-MariaDB
 -- Wersja PHP: 7.4.4
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Baza danych: `baza_repertuaru`
+-- Baza danych: `repertuar`
 --
 
 -- --------------------------------------------------------
@@ -28,47 +28,91 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `tbczasmiejsce` (
-  `ID_godz` int(11) NOT NULL,
-  `ID_filmu` int(11) NOT NULL,
+  `ID_seansu` int(11) NOT NULL,
+  `ID_tytulu` int(11) NOT NULL,
   `DzienTyg` text NOT NULL,
-  `godz` text NOT NULL,
-  `Data` date NOT NULL,
   `Sala` int(11) NOT NULL,
-  `Rodz_filmu` text NOT NULL
+  `Rodz_filmu` text NOT NULL,
+  `GodzinaSeansu` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Zrzut danych tabeli `tbczasmiejsce`
 --
 
-INSERT INTO `tbczasmiejsce` (`ID_godz`, `ID_filmu`, `DzienTyg`, `godz`, `Data`, `Sala`, `Rodz_filmu`) VALUES
-(1, 1, 'Wtorek', '9:50', '2020-03-10', 1, '2D'),
-(2, 2, 'Wtorek', '10:15', '2020-03-10', 5, '2D dubbing'),
-(3, 3, 'Wtorek', '10:30', '2020-03-10', 2, '2D'),
-(4, 5, 'Wtorek', '10:45', '2020-03-10', 4, '2D dubbing'),
-(5, 6, 'Wtorek', '11:00', '2020-03-10', 3, '2D dubbing'),
-(6, 7, 'Wtorek', '11:50', '2020-03-10', 1, '2D'),
-(7, 8, 'Wtorek', '12:45', '2020-03-10', 5, '2D'),
-(8, 9, 'Wtorek', '13:15', '2020-03-10', 3, '2D napisy'),
-(9, 5, 'Wtorek', '13:15', '2020-03-10', 4, '2D dubbing'),
-(10, 6, 'Wtorek', '13:30', '2020-03-10', 2, '3D dubbing'),
-(11, 7, 'Wtorek', '14:40', '2020-03-10', 1, '2D'),
-(12, 10, 'Wtorek', '15:00', '2020-03-10', 5, '2D napisy'),
-(13, 5, 'Wtorek', '15:30', '2020-03-10', 4, '2D dubbing'),
-(14, 3, 'Wtorek', '15:45', '2020-03-10', 2, '2D'),
-(15, 6, 'Wtorek', '16:00', '2020-03-10', 3, '2D dubbing'),
-(16, 8, 'Wtorek', '17:00', '2020-03-10', 5, '2D'),
-(17, 5, 'Wtorek', '17:30', '2020-03-10', 1, '2D dubbing'),
-(18, 6, 'Wtorek', '18:00', '2020-03-10', 4, '2D dubbing'),
-(19, 9, 'Wtorek', '18:15', '2020-03-10', 2, '2D napisy'),
-(20, 7, 'Wtorek', '18:30', '2020-03-10', 3, '2D'),
-(21, 8, 'Wtorek', '19:00', '2020-03-10', 5, '2D'),
-(22, 3, 'Wtorek', '19:45', '2020-03-10', 1, '2D'),
-(23, 9, 'Wtorek', '20:30', '2020-03-10', 4, '2D napisy'),
-(24, 10, 'Wtorek', '21:00', '2020-03-10', 2, '2D napisy'),
-(25, 11, 'Wtorek', '21:00', '2020-03-10', 5, '2D'),
-(26, 7, 'Wtorek', '21:30', '2020-03-10', 3, '2D'),
-(27, 8, 'Wtorek', '22:15', '2020-03-10', 1, '2D');
+INSERT INTO `tbczasmiejsce` (`ID_seansu`, `ID_tytulu`, `DzienTyg`, `Sala`, `Rodz_filmu`, `GodzinaSeansu`) VALUES
+(1, 1, 'Wtorek', 1, '2D', '14:30'),
+(2, 2, 'Wtorek', 5, '2D dubbing', '14:00'),
+(3, 3, 'Wtorek', 2, '2D', '13:30'),
+(4, 5, 'Wtorek', 4, '2D dubbing', '15:00'),
+(5, 6, 'Wtorek', 3, '2D dubbing', '12:00'),
+(8, 9, 'Wtorek', 3, '2D napisy', '20:30'),
+(12, 10, 'Wtorek', 5, '2D napisy', '20:00'),
+(25, 11, 'Wtorek', 5, '2D', '16:30'),
+(26, 7, 'Wtorek', 3, '2D', '15:30'),
+(27, 8, 'Wtorek', 1, '2D', '18:00'),
+(29, 10, 'Środa', 4, '2D_dubbing', '13:30'),
+(30, 1, 'Środa', 1, '2D', '14:30'),
+(31, 2, 'Środa', 5, '2D dubbing', '14:00'),
+(32, 3, 'Środa', 2, '2D', '13:30'),
+(34, 5, 'Środa', 4, '2D dubbing', '15:00'),
+(35, 6, 'Środa', 3, '2D dubbing', '12:00'),
+(37, 7, 'Środa', 3, '2D', '15:30'),
+(38, 8, 'Środa', 1, '2D', '18:00'),
+(39, 9, 'Środa', 3, '2D napisy', '20:30'),
+(40, 11, 'Środa', 5, '2D', '16:30'),
+(41, 1, 'Poniedziałek', 1, '2D', '14:30'),
+(42, 1, 'Czwartek', 1, '2D', '14:30'),
+(43, 1, 'Piątek', 1, '2D', '14:30'),
+(44, 1, 'Sobota', 1, '2D', '14:30'),
+(45, 1, 'Niedziela', 1, '2D', '14:30'),
+(46, 2, 'Poniedziałek', 5, '2D dubbing', '14:00'),
+(47, 2, 'Czwartek', 5, '2D dubbing', '14:00'),
+(48, 2, 'Piątek', 5, '2D dubbing', '14:00'),
+(49, 2, 'Sobota', 5, '2D dubbing', '14:00'),
+(50, 2, 'Niedziela', 5, '2D dubbing', '14:00'),
+(51, 3, 'Poniedziałek', 2, '2D', '13:30'),
+(52, 3, 'Czwartek', 2, '2D', '13:30'),
+(53, 3, 'Piątek', 2, '2D', '13:30'),
+(54, 3, 'Sobota', 2, '2D', '13:30'),
+(55, 3, 'Niedziela', 2, '2D', '13:30'),
+(56, 5, 'Czwartek', 4, '2D dubbing', '15:00'),
+(57, 5, 'Poniedziałek', 4, '2D dubbing', '15:00'),
+(58, 5, 'Piątek', 4, '2D dubbing', '15:00'),
+(59, 5, 'Sobota', 4, '2D dubbing', '15:00'),
+(60, 5, 'Niedziela', 4, '2D dubbing', '15:00'),
+(61, 6, 'Poniedziałek', 3, '2D dubbing', '12:00'),
+(62, 7, 'Czwartek', 3, '2D', '15:30'),
+(63, 6, 'Czwartek', 3, '2D dubbing', '12:00'),
+(64, 6, 'Piątek', 3, '2D dubbing', '12:00'),
+(65, 6, 'Sobota', 3, '2D dubbing', '12:00'),
+(66, 6, 'Niedziela', 3, '2D dubbing', '12:00'),
+(67, 7, 'Poniedziałek', 3, '2D', '15:30'),
+(68, 7, 'Piątek', 3, '2D', '15:30'),
+(69, 7, 'Sobota', 3, '2D', '15:30'),
+(70, 7, 'Niedziela', 3, '2D', '15:30'),
+(71, 8, 'Poniedziałek', 1, '2D', '18:00'),
+(72, 8, 'Czwartek', 1, '2D', '18:00'),
+(73, 8, 'Piątek', 1, '2D', '18:00'),
+(74, 8, 'Sobota', 1, '2D', '18:00'),
+(75, 8, 'Niedziela', 1, '2D', '18:00'),
+(76, 9, 'Poniedziałek', 3, '2D napisy', '20:30'),
+(77, 9, 'Czwartek', 3, '2D napisy', '20:30'),
+(78, 9, 'Piątek', 3, '2D napisy', '20:30'),
+(79, 9, 'Sobota', 3, '2D napisy', '20:30'),
+(80, 9, 'Niedziela', 3, '2D napisy', '20:30'),
+(81, 10, 'Poniedziałek', 5, '2D napisy', '20:00'),
+(82, 10, 'Czwartek', 4, '2D_dubbing', '13:30'),
+(83, 10, 'Piątek', 4, '2D_dubbing', '13:30'),
+(84, 10, 'Sobota', 4, '2D_dubbing', '13:30'),
+(85, 10, 'Niedziela', 4, '2D_dubbing', '13:30'),
+(86, 11, 'Czwartek', 5, '2D', '16:30'),
+(87, 11, 'Piątek', 5, '2D', '16:30'),
+(88, 11, 'Sobota', 5, '2D', '16:30'),
+(89, 11, 'Niedziela', 5, '2D', '16:30'),
+(90, 12, 'Sobota', 3, '2D', '22:00'),
+(91, 12, 'Piątek', 3, '2D', '22:00'),
+(92, 12, 'Niedziela', 3, '2D', '22:00');
 
 --
 -- Indeksy dla zrzutów tabel
@@ -78,8 +122,9 @@ INSERT INTO `tbczasmiejsce` (`ID_godz`, `ID_filmu`, `DzienTyg`, `godz`, `Data`, 
 -- Indeksy dla tabeli `tbczasmiejsce`
 --
 ALTER TABLE `tbczasmiejsce`
-  ADD PRIMARY KEY (`ID_godz`),
-  ADD KEY `ID_filmu` (`ID_filmu`);
+  ADD PRIMARY KEY (`ID_seansu`),
+  ADD KEY `ID_filmu` (`ID_tytulu`),
+  ADD KEY `aaa` (`ID_tytulu`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -89,7 +134,7 @@ ALTER TABLE `tbczasmiejsce`
 -- AUTO_INCREMENT dla tabeli `tbczasmiejsce`
 --
 ALTER TABLE `tbczasmiejsce`
-  MODIFY `ID_godz` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `ID_seansu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
 
 --
 -- Ograniczenia dla zrzutów tabel
@@ -99,7 +144,7 @@ ALTER TABLE `tbczasmiejsce`
 -- Ograniczenia dla tabeli `tbczasmiejsce`
 --
 ALTER TABLE `tbczasmiejsce`
-  ADD CONSTRAINT `tbczasmiejsce_ibfk_1` FOREIGN KEY (`ID_filmu`) REFERENCES `tb_info_o_filmie` (`ID_tytulu`);
+  ADD CONSTRAINT `tbczasmiejsce_ibfk_1` FOREIGN KEY (`ID_tytulu`) REFERENCES `tb_info_o_filmie` (`ID_tytulu`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
